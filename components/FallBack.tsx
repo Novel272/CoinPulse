@@ -1,3 +1,42 @@
+// Categories fallback skeleton using DataTable
+export function CategoriesFallBack() {
+  const columns = [
+    {
+      header: "Category",
+      cell: () => <div className="h-4 w-28 bg-gray-300 rounded" />,
+    },
+    {
+      header: "Top Gainers",
+      cell: () => (
+        <div className="flex gap-1">
+          <div className="w-7 h-7 bg-gray-300 rounded-full" />
+          <div className="w-7 h-7 bg-gray-200 rounded-full" />
+          <div className="w-7 h-7 bg-gray-100 rounded-full" />
+        </div>
+      ),
+    },
+    {
+      header: "24h Change",
+      cell: () => <div className="h-4 w-16 bg-gray-300 rounded" />,
+    },
+    {
+      header: "Market Cap",
+      cell: () => <div className="h-4 w-24 bg-gray-300 rounded" />,
+    },
+  ];
+  const data = Array.from({ length: 6 }, (_, i) => ({ id: i }));
+
+  return (
+    <div id="categories" className="skeleton categories-fallback">
+      <DataTable
+        data={data}
+        columns={columns}
+        rowKey={(row) => row.id}
+        tableClassName="categories-table animate-pulse"
+      />
+    </div>
+  );
+}
 import React from "react";
 import DataTable from "@/components/DataTable";
 
