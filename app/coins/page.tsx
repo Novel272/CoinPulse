@@ -2,7 +2,7 @@ import React from "react";
 import { fetcher } from "@/lib/coingecko.actions";
 import Link from "next/link";
 import Image from "next/image";
-import { cn, formatPercentage } from "@/lib/utils";
+import { cn, formatPercentage, formatCurrency } from "@/lib/utils";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import DataTable from "@/components/DataTable";
 import CoinPagination from "@/components/ui/CoinPagination";
@@ -15,9 +15,9 @@ const Coins = async ({ searchParams }: NextPageProps) => {
   const coinsData = await fetcher<CoinMarketData[]>("/coins/markets", {
     vs_currency: "usd",
     order: "market_cap_desc",
-    /*per_page:perPage,
-    page:currentPage,*/
-    sparkling: false,
+    per_page: perPage,
+    page: currentPage,
+    sparkline: false,
     price_change_percentage: "24h",
   });
 
@@ -68,7 +68,7 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     {
       header: "Market Cap",
       cellClassName: "market-cap-cell",
-      cell: (coin) => formatPercentage(coin.market_cap),
+      cell: (coin) => formatCurrency(coin.market_cap),
     },
   ];
 

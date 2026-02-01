@@ -54,20 +54,6 @@ const CoinPagination = ({
           ))}
         </div>
 
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationLink href="#" isActive>
-            2
-          </PaginationLink>
-        </PaginationItem>
-
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-
         <PaginationItem className="pagination-control next">
           <PaginationNext
             onClick={() => !isLastPage && handlePage(currentPage + 1)}
