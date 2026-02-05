@@ -5,6 +5,8 @@ interface NextPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
+type LiveInterval = "10s" | "30s" | "1m";
+
 interface CandlestickChartProps {
   data?: OHLCData[];
   liveOhlcv?: OHLCData | null;
@@ -13,8 +15,9 @@ interface CandlestickChartProps {
   children?: React.ReactNode;
   mode?: "historical" | "live";
   initialPeriod?: Period;
-  liveInterval?: "1s" | "1m";
-  setLiveInterval?: (interval: "1s" | "1m") => void;
+  liveInterval?: LiveInterval;
+
+  setLiveInterval?: (interval: LiveInterval) => void;
 }
 
 interface ConverterProps {
@@ -178,6 +181,37 @@ interface WebSocketMessage {
   ty?: string;
   channel?: string;
   identifier?: string;
+}
+
+/* this part will be for used insisted of the Websocket because i am using the free API key of coinGecko not the pro  */
+
+interface UseCoinGeckoLiveDataProps {
+  coinId: string;
+
+  /**
+   * poolId removed — not supported on FREE plan
+   */
+  liveInterval?: LiveInterval;
+}
+
+interface UseCoinGeckoLiveDataReturn {
+  price: ExtendedPriceData | null;
+
+  /**
+   * Trades are unavailable on free CoinGecko
+   * Always empty array
+   */
+  trades: Trade[];
+
+  /**
+   * Last OHLC candle only
+   */
+  ohlcv: OHLCData | null;
+
+  /**
+   * REST is stateless — always "true"
+   */
+  isConnected: boolean;
 }
 
 interface CoinDetailsData {
