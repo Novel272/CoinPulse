@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 
-const API_BASE = process.env.NEXT_PUBLIC_COINGECKO_BASE_URL!;
+const API_BASE =
+  process.env.NEXT_PUBLIC_COINGECKO_BASE_URL ||
+  "https://api.coingecko.com/api/v3";
 
 export const useCoinGeckoWebsocket = ({
   coinId,

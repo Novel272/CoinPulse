@@ -21,7 +21,7 @@ const Converter = ({ symbol, icon, priceList }: ConverterProps) => {
   return (
     <div id="converter">
       <div className="panel">
-        <h4>{symbol.toUpperCase()}Converter</h4>
+        <h4>{symbol.toUpperCase()} Converter</h4>
         <div className="input-wrapper">
           <Input
             type="number"

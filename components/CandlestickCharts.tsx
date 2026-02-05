@@ -127,15 +127,21 @@ const CandlestickCharts = ({
     let merged: OHLCData[];
 
     if (liveOhlcv) {
-      const liveTimestamp = liveOhlcv[0];
+      const liveTimestamp = Math.floor(liveOhlcv[0] / 1000); // ✅ normalize
 
       const lastHistoricalCandle =
         convertedToSeconds[convertedToSeconds.length - 1];
 
       if (lastHistoricalCandle && lastHistoricalCandle[0] === liveTimestamp) {
-        merged = [...convertedToSeconds.slice(0, -1), liveOhlcv];
+        merged = [
+          ...convertedToSeconds.slice(0, -1),
+          [liveTimestamp, ...liveOhlcv.slice(1)] as OHLCData,
+        ];
       } else {
-        merged = [...convertedToSeconds, liveOhlcv];
+        merged = [
+          ...convertedToSeconds,
+          [liveTimestamp, ...liveOhlcv.slice(1)] as OHLCData,
+        ];
       }
     } else {
       merged = convertedToSeconds;
@@ -151,7 +157,7 @@ const CandlestickCharts = ({
       chartRef.current?.timeScale().fitContent();
       prevOhlcDataLength.current = ohlcData.length;
     }
-  }, [ohlcData, liveOhlcv, mode, liveOhlcv]);
+  }, [ohlcData, liveOhlcv, mode]);
 
   return (
     <div id="candlestick-charts">

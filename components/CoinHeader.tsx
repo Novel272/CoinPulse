@@ -53,7 +53,7 @@ const CoinHeader = ({
           <Badge
             className={cn("badge", isTrendingUp ? "badge-up" : "badge-down")}
           >
-            {formatCurrency(livePriceChangePercentage24h)}
+            {formatPercentage(livePriceChangePercentage24h)}
             {isTrendingUp ? <TrendingUp /> : <TrendingDown />}
             (24h)
           </Badge>
@@ -71,11 +71,12 @@ const CoinHeader = ({
               })}
             >
               <p>{stat.formatter(stat.value)}</p>
-              {stat.showIcon && stat.isUp ? (
-                <TrendingUp width={17} height={17} />
-              ) : (
-                <TrendingDown width={17} height={17} />
-              )}
+              {stat.showIcon &&
+                (stat.isUp ? (
+                  <TrendingUp width={17} height={17} />
+                ) : (
+                  <TrendingDown width={17} height={17} />
+                ))}
             </div>
           </li>
         ))}

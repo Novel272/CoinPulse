@@ -66,9 +66,11 @@ export const useCoinGeckoLiveData = ({
     switch (liveInterval) {
       case "1m":
         return 60000;
+      case "10s":
+        return 10000;
       case "30s":
       default:
-        return 30000; // default for free API
+        return 30000;
     }
   })();
 

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Separator } from "./ui/separator";
 import CandlestickCharts from "./CandlestickCharts";
@@ -55,7 +57,6 @@ const LiveDataWrapper = ({
 
   return (
     <section id="live-data-wrapper">
-      {/* ===== Coin Header ===== */}
       <CoinHeader
         name={coin.name}
         image={coin.image.large}
@@ -72,14 +73,10 @@ const LiveDataWrapper = ({
 
       <Separator className="divider" />
 
-      {/* ===== Chart ===== */}
       <div className="trend">
         <CandlestickCharts
           coinId={coinId}
           data={coinOHLCData}
-          /**
-           * Last polled candle only
-           */
           liveOhlcv={ohlcv}
           mode="live"
           initialPeriod="daily"
