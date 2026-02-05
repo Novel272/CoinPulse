@@ -1,0 +1,68 @@
+"use client";
+
+import React, { useState } from "react";
+import { Input } from "./ui/input";
+import Image from "next/image";
+import { formatCurrency } from "@/lib/utils";
+import {
+  Select,
+  SelectTrigger,
+  SelectGroup,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "./ui/select";
+
+const Converter = ({ symbol, icon, priceList }: ConverterProps) => {
+  const [currency, setCurrency] = useState("usd");
+  const [amount, setAmount] = useState("10");
+
+  const convertedPrice = (parseFloat(amount) || 0) * (priceList[currency] || 0);
+  return (
+    <div id="converter">
+      <div className="panel">
+        <h4>{symbol.toUpperCase()}Converter</h4>
+        <div className="input-wrapper">
+          <Input
+            type="number"
+            placeholder="amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className="input"
+          />
+          <div className="coin-info">
+            <Image src={icon} alt={symbol} width={17} height={17} />
+            <p>{symbol.toUpperCase()}</p>
+          </div>
+        </div>
+        <div className="divider">
+          <div className="line" />
+          <Image src="/converter.svg" alt="converter" width={32} height={32} />
+        </div>
+        <div className="output-wrapper">
+          <p> {formatCurrency(convertedPrice, 2, currency, false)}</p>
+          <Select value={currency} onValueChange={setCurrency}>
+            <SelectTrigger className="select-trigger" value={currency}>
+              <SelectValue placeholder="Select" className="select-value">
+                {currency.toUpperCase()}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent className="select-content" data-converter>
+              {Object.keys(priceList).map((currencyCode) => (
+                <SelectItem
+                  value={currencyCode}
+                  key={currencyCode}
+                  className="select-item"
+                >
+                  {currencyCode.toUpperCase()}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Converter;
