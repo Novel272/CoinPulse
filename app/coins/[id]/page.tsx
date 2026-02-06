@@ -24,7 +24,10 @@ const page = async ({ params }: NextPageProps) => {
   const platform = coinData.asset_platform_id
     ? coinData.detail_platforms?.[coinData.asset_platform_id]
     : null;
-  const network = platform?.geckoterminal_url.split("/")[3] || null;
+  const network =
+    platform && platform.geckoterminal_url
+      ? platform.geckoterminal_url.split("/")[3]
+      : null;
 
   const contractaddress = platform?.contract_address || null;
 
@@ -64,7 +67,7 @@ const page = async ({ params }: NextPageProps) => {
   ];
 
   return (
-    <main id="coins-details-page">
+    <main id="coin-details-page">
       <section className="primary">
         {/*
           Fix: coinOHLCData is now always an array (OHLCData[]), matching the expected prop type

@@ -1,5 +1,7 @@
 import React from "react";
 import { fetcher } from "@/lib/coingecko.actions";
+import DataTable from "./DataTable";
+import { cn, formatCurrency } from "@/lib/utils";
 
 type Exchange = {
   id: string;
@@ -7,37 +9,41 @@ type Exchange = {
   trust_score_rank?: number;
   trade_volume_24h_btc?: number;
 };
+
 const ExchangeList = async () => {
   const exchanges = await fetcher<Exchange[]>("exchanges");
-
-  // Limit results so the page stays light
   const topExchanges = exchanges.slice(0, 10);
 
-  return (
-    <div className="exchange-list">
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Exchange</th>
-            <th>24h Volume (BTC)</th>
-          </tr>
-        </thead>
+  const columns: DataTableColumn<Exchange>[] = [
+    {
+      header: "Rank",
+      cellClassName: "rank-cell",
+      cell: (exchange) => exchange.trust_score_rank ?? "-",
+    },
+    {
+      header: "Exchange",
+      cellClassName: "exchange-cell",
+      cell: (exchange) => exchange.name,
+    },
+    {
+      header: "24h Volume (BTC)",
+      cellClassName: "volume-cell",
+      cell: (exchange) =>
+        exchange.trade_volume_24h_btc
+          ? formatCurrency(exchange.trade_volume_24h_btc, 2, "BTC", false)
+          : "-",
+    },
+  ];
 
-        <tbody>
-          {topExchanges.map((exchange) => (
-            <tr key={exchange.id}>
-              <td>{exchange.trust_score_rank ?? "-"}</td>
-              <td>{exchange.name}</td>
-              <td>
-                {exchange.trade_volume_24h_btc
-                  ? exchange.trade_volume_24h_btc.toFixed(2)
-                  : "-"}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+  return (
+    <div id="exchanges" className="custom-scrollBar">
+      <h4>Top Exchanges</h4>
+      <DataTable
+        columns={columns}
+        data={topExchanges}
+        rowKey={(row) => row.id}
+        tableClassName="mt-3"
+      />
     </div>
   );
 };

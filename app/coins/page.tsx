@@ -25,7 +25,12 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     {
       header: "Rank",
       cellClassName: "rank-cell",
-      cell: (coin) => <>#{coin.market_cap_rank}</>,
+      cell: (coin) => (
+        <>
+          #{coin.market_cap_rank}
+          <Link href={`/coins/${coin.id}`} aria-label="View coin" />
+        </>
+      ),
     },
     {
       header: "Token",
@@ -44,7 +49,7 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     {
       header: "Price",
       cellClassName: "price-cell",
-      cell: (coin) => coin.current_price,
+      cell: (coin) => formatCurrency(coin.current_price),
     },
     {
       header: " 24h Change",
@@ -77,7 +82,7 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     currentPage >= 100 ? Math.ceil(currentPage / 100) * 100 + 100 : 100;
 
   return (
-    <main id="coin-page">
+    <main id="coins-page">
       <div className="content">
         <h4>All Coins</h4>
         <DataTable

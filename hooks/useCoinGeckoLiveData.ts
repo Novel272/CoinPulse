@@ -13,7 +13,7 @@ const API_BASE =
  */
 export const useCoinGeckoLiveData = ({
   coinId,
-  liveInterval = "30s", // default to 30s polling for free API
+  liveInterval = "1m", // slowest allowed by type, will multiply interval below for slower polling
 }: UseCoinGeckoLiveDataProps): UseCoinGeckoLiveDataReturn => {
   const [price, setPrice] = useState<ExtendedPriceData | null>(null);
   const [ohlcv, setOhlcv] = useState<OHLCData | null>(null);
@@ -24,6 +24,7 @@ export const useCoinGeckoLiveData = ({
   const fetchPrice = useCallback(async () => {
     try {
       const url = `${API_BASE}/simple/price?ids=${coinId}&vs_currencies=usd&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true`;
+      console.log("Fetching price with URL:", url); // Log URL
       const res = await fetch(url);
       if (!res.ok) throw new Error("Failed to fetch price");
 
@@ -49,6 +50,7 @@ export const useCoinGeckoLiveData = ({
   const fetchOHLC = useCallback(async () => {
     try {
       const url = `${API_BASE}/coins/${coinId}/ohlc?vs_currency=usd&days=1`;
+      console.log("Fetching price with URL:", url); // Log URL
       const res = await fetch(url);
       if (!res.ok) throw new Error("Failed to fetch OHLC");
 
@@ -62,17 +64,20 @@ export const useCoinGeckoLiveData = ({
   }, [coinId]);
 
   // Convert liveInterval string to milliseconds for setInterval
-  const intervalMs = (() => {
-    switch (liveInterval) {
-      case "1m":
-        return 60000;
-      case "10s":
-        return 10000;
-      case "30s":
-      default:
-        return 30000;
-    }
-  })();
+  const validIntervals = ["1m", "10s", "30s"];
+  const intervalMs = validIntervals.includes(liveInterval)
+    ? (() => {
+        switch (liveInterval) {
+          case "1m":
+            return 60000;
+          case "10s":
+            return 10000;
+          case "30s":
+          default:
+            return 30000;
+        }
+      })()
+    : 30000;
 
   useEffect(() => {
     if (!coinId) return;
@@ -91,8 +96,8 @@ export const useCoinGeckoLiveData = ({
     fetchAll();
 
     // Polling loop
-    const intervalId = setInterval(fetchAll, intervalMs);
-
+    // To slow down polling for free API, multiply intervalMs by 4 (e.g., 1m * 4 = 4 minutes)
+    const intervalId = setInterval(fetchAll, intervalMs * 4);
     return () => clearInterval(intervalId);
   }, [coinId, fetchPrice, fetchOHLC, intervalMs]);
 

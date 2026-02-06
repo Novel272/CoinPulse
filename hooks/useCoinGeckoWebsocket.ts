@@ -57,7 +57,11 @@ export const useCoinGeckoWebsocket = ({
 
     // Fix: Convert liveInterval (string) to ms for setInterval
     const intervalMs =
-      liveInterval === "1s" ? 1000 : liveInterval === "1m" ? 60000 : 10000;
+      liveInterval === "1s"
+        ? 1000 * 60
+        : liveInterval === "1m"
+          ? 60000 * 2
+          : 10000 * 12; // minimum 1 minute, default 2 minutes
 
     const fetchAll = async () => {
       if (isFetching.current) return;
@@ -74,7 +78,6 @@ export const useCoinGeckoWebsocket = ({
 
     // Polling loop
     const intervalId: NodeJS.Timeout = setInterval(fetchAll, intervalMs);
-
     return () => clearInterval(intervalId);
   }, [coinId, liveInterval, fetchOHLC, fetchPrice]);
 
