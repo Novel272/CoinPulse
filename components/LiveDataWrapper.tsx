@@ -10,7 +10,7 @@ import CoinHeader from "./CoinHeader";
 const LiveDataWrapper = ({
   children,
   coinId,
-  poolId,
+  // poolId,
   coin,
   coinOHLCData,
 }: LiveDataProps) => {
