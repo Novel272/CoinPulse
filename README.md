@@ -1,4 +1,4 @@
-🌐 Live Demo
+## 🌐 Live Demo
 
 🔗 Production Deployment:
 👉 https://coin-pulse-crypto.vercel.app/
@@ -14,16 +14,16 @@ CoinPulse is designed for traders, analysts, fin tech developers, and data-drive
 
 🖼️ Screenshots
 **Homepage Dashboard:**
-<img src="assets/screenshots/home1.png" alt="Homepage 1" width="600" />
-<img src="assets/screenshots/home2.png" alt="Homepage 2" width="600" />
+<img src="assets/screenshots/home1.jpg" alt="Homepage 1" width="600" />
+<img src="assets/screenshots/home2.jpg" alt="Homepage 2" width="600" />
 
 **All Coins Market Table:**
-<img src="assets/screenshots/AllCoinPage1.png" alt="All Coins Page 1" width="600" />
-<img src="assets/screenshots/AllCoinPage2.png" alt="All Coins Page 2" width="600" />
+<img src="assets/screenshots/AllCoinPage1.jpg" alt="All Coins Page 1" width="600" />
+<img src="assets/screenshots/AllCoinPage2.jpg" alt="All Coins Page 2" width="600" />
 
 **Token Detail Page:**
-<img src="assets/screenshots/CoinPage1.png" alt="Coin Page 1" width="600" />
-<img src="assets/screenshots/CoinPage2.png" alt="Coin Page 2" width="600" />
+<img src="assets/screenshots/CoinPage1.jpg" alt="Coin Page 1" width="600" />
+<img src="assets/screenshots/CoinPage2.jpg" alt="Coin Page 2" width="600" />
 
 ✨ Core Features
 ⚡ Real-Time Market Data
@@ -76,62 +76,64 @@ TradingView Chart Rendering Engine
 
 📂 Project Structure
 
+```
 coinpulse/
-│ components.json
-│ constants.ts
-│ eslint.config.mjs
-│ next-env.d.ts
-│ next.config.ts
-│ package.json
-│ postcss.config.mjs
-│ README.md
-│ tsconfig.json
-│ type.d.ts
+├── components.json
+├── constants.ts
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
+├── type.d.ts
 │
 ├── app/
-│ ├── globals.css
-│ ├── layout.tsx
-│ ├── page.tsx
-│ └── coins/
-│ ├── page.tsx
-│ └── [id]/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── coins/
+│       ├── page.tsx
+│       └── [id]/
 │
 ├── assets/
-│ └── screenshots/
+│   └── screenshots/
 │
 ├── components/
-│ ├── CandlestickCharts.tsx
-│ ├── CoinHeader.tsx
-│ ├── Converter.tsx
-│ ├── DataTable.tsx
-│ ├── ExchangeList.tsx
-│ ├── FallBack.tsx
-│ ├── Header.tsx
-│ ├── LiveDataWrapper.tsx
-│ ├── SearchModal.tsx
-│ ├── home/
-│ │ ├── categories.tsx
-│ │ ├── CoinOverview.tsx
-│ │ └── TrendingCoins.tsx
-│ └── ui/
-│ ├── badge.tsx
-│ ├── button.tsx
-│ ├── CoinPagination.tsx
-│ ├── input.tsx
-│ ├── pagination.tsx
-│ ├── select.tsx
-│ ├── separator.tsx
-│ └── table.tsx
+│   ├── CandlestickCharts.tsx
+│   ├── CoinHeader.tsx
+│   ├── Converter.tsx
+│   ├── DataTable.tsx
+│   ├── ExchangeList.tsx
+│   ├── FallBack.tsx
+│   ├── Header.tsx
+│   ├── LiveDataWrapper.tsx
+│   ├── SearchModal.tsx
+│   ├── home/
+│   │   ├── categories.tsx
+│   │   ├── CoinOverview.tsx
+│   │   └── TrendingCoins.tsx
+│   └── ui/
+│       ├── badge.tsx
+│       ├── button.tsx
+│       ├── CoinPagination.tsx
+│       ├── input.tsx
+│       ├── pagination.tsx
+│       ├── select.tsx
+│       ├── separator.tsx
+│       └── table.tsx
 │
 ├── hooks/
-│ ├── useCoinGeckoLiveData.ts
-│ └── useCoinGeckoWebsocket.ts
+│   ├── useCoinGeckoLiveData.ts
+│   └── useCoinGeckoWebsocket.ts
 │
 ├── lib/
-│ ├── coingecko.actions.ts
-│ └── utils.ts
+│   ├── coingecko.actions.ts
+│   └── utils.ts
 │
 └── public/
+```
 
 ⚠️ Demo API Disclaimer
 
