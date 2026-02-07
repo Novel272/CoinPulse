@@ -13,46 +13,41 @@ It integrates CoinGecko’s REST API and WebSocket feeds to stream live price da
 CoinPulse is designed for traders, analysts, fin tech developers, and data-driven crypto enthusiasts who need fast, accurate, and visually rich market insights.
 
 🖼️ Screenshots
-**Homepage Dashboard:**
-<img src="assets/screenshots/home1.jpg" alt="Homepage 1" width="600" />
-<img src="assets/screenshots/home2.jpg" alt="Homepage 2" width="600" />
-<br />
 
-**All Coins Market Table:**
-<img src="assets/screenshots/AllCoinPage1.jpg" alt="All Coins Page 1" width="600" />
-<img src="assets/screenshots/AllCoinPage2.jpg" alt="All Coins Page 2" width="600" />
-<br />
+| Homepage Dashboard                                                      | Homepage Dashboard                                                      |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| <img src="assets/screenshots/home1.jpg" alt="Homepage 1" width="400" /> | <img src="assets/screenshots/home2.jpg" alt="Homepage 2" width="400" /> |
 
-**Token Detail Page:**
-<img src="assets/screenshots/CoinPage1.jpg" alt="Coin Page 1" width="600" />
-<img src="assets/screenshots/CoinPage2.jpg" alt="Coin Page 2" width="600" />
-<br />
+| All Coins Market Table                                                               | All Coins Market Table                                                               |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| <img src="assets/screenshots/AllCoinPage1.jpg" alt="All Coins Page 1" width="400" /> | <img src="assets/screenshots/AllCoinPage2.jpg" alt="All Coins Page 2" width="400" /> |
+
+| Token Detail Page                                                            | Token Detail Page                                                            |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| <img src="assets/screenshots/CoinPage1.jpg" alt="Coin Page 1" width="400" /> | <img src="assets/screenshots/CoinPage2.jpg" alt="Coin Page 2" width="400" /> |
 
 ✨ Core Features
-⚡ Real-Time Market Data
-▪Live cryptocurrency price streaming via WebSockets
-▪High-frequency market updates with minimal latency
-▪Global crypto market statistics and dominance metrics
 
-📈 Advanced Trading Visualizations
-▪Interactive TradingView candlestick charts
-▪OHLCV historical data visualization
-▪Multi-timeframe chart controls (1D, 1W, 1M, 1Y, MAX)
-
-🔎 Dynamic Token Pages
-▪Detailed token analytics
-▪Market cap, volume, rank, and price change metrics
-▪Real-time fiat and crypto currency converter
-
-📑 Advanced Search & Tables
-▪Sortable and filterable coin market tables
-▪Trending coins module
-▪Real-time 24h price change tracking
-
-🧩 Modular & Scalable UI
-▪Component-driven architecture using shadcn/ui
-▪TailwindCSS v4 utility-first design system
-▪Next.js App Router and Server Components
+1. **Real-Time Market Data**
+   - Live cryptocurrency price streaming via WebSockets
+   - High-frequency market updates with minimal latency
+   - Global crypto market statistics and dominance metrics
+2. **Advanced Trading Visualizations**
+   - Interactive TradingView candlestick charts
+   - OHLCV historical data visualization
+   - Multi-timeframe chart controls (1D, 1W, 1M, 1Y, MAX)
+3. **Dynamic Token Pages**
+   - Detailed token analytics
+   - Market cap, volume, rank, and price change metrics
+   - Real-time fiat and crypto currency converter
+4. **Advanced Search & Tables**
+   - Sortable and filterable coin market tables
+   - Trending coins module
+   - Real-time 24h price change tracking
+5. **Modular & Scalable UI**
+   - Component-driven architecture using shadcn/ui
+   - TailwindCSS v4 utility-first design system
+   - Next.js App Router and Server Components
 
 🧠 Technology Stack
 
@@ -145,32 +140,33 @@ This project uses the CoinGecko Demo API tier, which is subject to strict rate l
 As a result, real-time updates may experience latency or throttling under high traffic.
 
 🚀 Usage
-This is a deployed web platform. No installation is required.
-Access the dashboard:
 
-1-Open the live demo link
-2-Explore global crypto market stats
-3-Search for any cryptocurrency
-4-View live charts and token analytics
+1. Open the live demo link
+2. Explore global crypto market stats
+3. Search for any cryptocurrency
+4. View live charts and token analytics
 
 🔐 Security & Data Integrity
-▪Read-only analytics platform (no wallet or trading features)
-▪Rate-limited external API requests
-▪Error handling and fallback UI for API downtime
+
+- Read-only analytics platform (no wallet or trading features)
+- Rate-limited external API requests
+- Error handling and fallback UI for API downtime
 
 ⚡ Performance Optimizations
-▪Next.js Server Components & Edge Rendering
-▪API caching and revalidation strategies
-▪WebSocket streaming for real-time updates
-▪TailwindCSS JIT compilation
-▪Code splitting and lazy loading
+
+- Next.js Server Components & Edge Rendering
+- API caching and revalidation strategies
+- WebSocket streaming for real-time updates
+- TailwindCSS JIT compilation
+- Code splitting and lazy loading
 
 👨‍💻 Author
 Mohammed Almustafa Kamal
 Frontend Engineer
 
 ⭐ Acknowledgements
-▪CoinGecko API
-▪TradingView
-▪Next.js Team
-▪shadcn/ui Community
+
+- CoinGecko API
+- TradingView
+- Next.js Team
+- shadcn/ui Community
