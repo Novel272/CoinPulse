@@ -10,18 +10,20 @@ CoinPulse is a high-performance cryptocurrency market intelligence platform buil
 The platform leverages Next.js 16, TailwindCSS v4, and shadcn/ui to provide a modular, scalable, and developer-friendly architecture.
 It integrates CoinGecko’s REST API and WebSocket feeds to stream live price data, order book updates, and historical OHLCV metrics.
 
-CoinPulse is designed for traders, analysts, fintech developers, and data-driven crypto enthusiasts who need fast, accurate, and visually rich market insights.
+CoinPulse is designed for traders, analysts, fin tech developers, and data-driven crypto enthusiasts who need fast, accurate, and visually rich market insights.
 
 🖼️ Screenshots
-🏠 Homepage Dashboard:
-![Homepage](assets/screenshots/home1.png)
-![Homepage](assets/screenshots/home2.png)
-📊 All Coins Market Table:
-![Homepage](assets/screenshots/AllCoinPage1.png)
-![Homepage](assets/screenshots/AllCoinPage2.png)
-💰 Token Detail Page:
-![Homepage](assets/screenshots/CoinPage1.png)
-![Homepage](assets/screenshots/CoinPage2.png)
+**Homepage Dashboard:**
+<img src="assets/screenshots/home1.png" alt="Homepage 1" width="600" />
+<img src="assets/screenshots/home2.png" alt="Homepage 2" width="600" />
+
+**All Coins Market Table:**
+<img src="assets/screenshots/AllCoinPage1.png" alt="All Coins Page 1" width="600" />
+<img src="assets/screenshots/AllCoinPage2.png" alt="All Coins Page 2" width="600" />
+
+**Token Detail Page:**
+<img src="assets/screenshots/CoinPage1.png" alt="Coin Page 1" width="600" />
+<img src="assets/screenshots/CoinPage2.png" alt="Coin Page 2" width="600" />
 
 ✨ Core Features
 ⚡ Real-Time Market Data
@@ -61,81 +63,75 @@ CoinPulse is designed for traders, analysts, fintech developers, and data-driven
 | Deployment         | Vercel                          |
 | State/Data         | React Hooks + Server Components |
 
-
-
 🏗️ System Architecture
 User Browser
-     ↓
+↓
 Next.js 16 App Router
-     ↓
+↓
 Server Components & Client Components
-     ↓
+↓
 CoinGecko REST API + WebSocket Streams
-     ↓
+↓
 TradingView Chart Rendering Engine
 
 📂 Project Structure
 
-coinpulse
-│   components.json
-│   constants.ts
-│   eslint.config.mjs
-│   next-env.d.ts
-│   next.config.ts
-│   package.json
-│   postcss.config.mjs
-│   README.md
-│   tsconfig.json
-│   type.d.ts
+coinpulse/
+│ components.json
+│ constants.ts
+│ eslint.config.mjs
+│ next-env.d.ts
+│ next.config.ts
+│ package.json
+│ postcss.config.mjs
+│ README.md
+│ tsconfig.json
+│ type.d.ts
 │
-├───app
-│   │   globals.css
-│   │   layout.tsx
-│   │   page.tsx
-│   │
-│   ├───coins
-│   │   │   page.tsx
-│   │   └───[id]
-│   │
-├───assets
-│   └───screenshots
+├── app/
+│ ├── globals.css
+│ ├── layout.tsx
+│ ├── page.tsx
+│ └── coins/
+│ ├── page.tsx
+│ └── [id]/
 │
-├───components
-│   │   CandlestickCharts.tsx
-│   │   CoinHeader.tsx
-│   │   Converter.tsx
-│   │   DataTable.tsx
-│   │   ExchangeList.tsx
-│   │   FallBack.tsx
-│   │   Header.tsx
-│   │   LiveDataWrapper.tsx
-│   │   SearchModal.tsx
-│   │
-│   ├───home
-│   │   │   categories.tsx
-│   │   │   CoinOverview.tsx
-│   │   │   TrendingCoins.tsx
-│   │
-│   └───ui
-│       │   badge.tsx
-│       │   button.tsx
-│       │   CoinPagination.tsx
-│       │   input.tsx
-│       │   pagination.tsx
-│       │   select.tsx
-│       │   separator.tsx
-│       │   table.tsx
+├── assets/
+│ └── screenshots/
 │
-├───hooks
-│   │   useCoinGeckoLiveData.ts
-│   │   useCoinGeckoWebsocket.ts
+├── components/
+│ ├── CandlestickCharts.tsx
+│ ├── CoinHeader.tsx
+│ ├── Converter.tsx
+│ ├── DataTable.tsx
+│ ├── ExchangeList.tsx
+│ ├── FallBack.tsx
+│ ├── Header.tsx
+│ ├── LiveDataWrapper.tsx
+│ ├── SearchModal.tsx
+│ ├── home/
+│ │ ├── categories.tsx
+│ │ ├── CoinOverview.tsx
+│ │ └── TrendingCoins.tsx
+│ └── ui/
+│ ├── badge.tsx
+│ ├── button.tsx
+│ ├── CoinPagination.tsx
+│ ├── input.tsx
+│ ├── pagination.tsx
+│ ├── select.tsx
+│ ├── separator.tsx
+│ └── table.tsx
 │
-├───lib
-│   │   coingecko.actions.ts
-│   │   utils.ts
+├── hooks/
+│ ├── useCoinGeckoLiveData.ts
+│ └── useCoinGeckoWebsocket.ts
 │
-└───public
-
+├── lib/
+│ ├── coingecko.actions.ts
+│ └── utils.ts
+│
+└── public/
 
 ⚠️ Demo API Disclaimer
 
