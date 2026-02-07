@@ -16,14 +16,17 @@ CoinPulse is designed for traders, analysts, fin tech developers, and data-drive
 **Homepage Dashboard:**
 <img src="assets/screenshots/home1.jpg" alt="Homepage 1" width="600" />
 <img src="assets/screenshots/home2.jpg" alt="Homepage 2" width="600" />
+<br />
 
 **All Coins Market Table:**
 <img src="assets/screenshots/AllCoinPage1.jpg" alt="All Coins Page 1" width="600" />
 <img src="assets/screenshots/AllCoinPage2.jpg" alt="All Coins Page 2" width="600" />
+<br />
 
 **Token Detail Page:**
 <img src="assets/screenshots/CoinPage1.jpg" alt="Coin Page 1" width="600" />
 <img src="assets/screenshots/CoinPage2.jpg" alt="Coin Page 2" width="600" />
+<br />
 
 ✨ Core Features
 ⚡ Real-Time Market Data
